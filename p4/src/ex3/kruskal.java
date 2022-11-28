@@ -2,11 +2,12 @@ package ex3;
 
 // https://www.programiz.com/dsa/kruskal-algorithm
 // https://www.geeksforgeeks.org/kruskals-minimum-spanning-tree-algorithm-greedy-algo-2/
+// https://www.javatpoint.com/kruskal-algorithm-java
 
 import java.util.*;
 
 // criar a árvore geradora mínima do grafo fornecido
-class kruskal {
+class grafo {
   // criar uma aresta do grafo que implementa a interface Comparable
   class Aresta implements Comparable<Aresta> {
     int origem, destino, peso;
@@ -26,7 +27,7 @@ class kruskal {
   Aresta aresta[];
 
   // usando costrutor para criar o grafo
-  kruskal(int v, int a) {
+  grafo(int v, int a) {
     vertices = v;
     arestas = a;
     aresta = new Aresta[arestas];
@@ -102,80 +103,85 @@ class kruskal {
   }
 
   public static void main(String[] args) {
-    int vertices = 6; // Number of vertices
-    int arestas = 8; // Number of arestas
-    kruskal G = new kruskal(vertices, arestas);
+    int vertices = 6; // número de vértices (Cidades)
+    int arestas = 15; // número de arestas (distâncias)
+    grafo G = new grafo(vertices, arestas);
 
+    // L - CM
     G.aresta[0].origem = 0;
     G.aresta[0].destino = 1;
-    G.aresta[0].peso = 4;
+    G.aresta[0].peso = 5558;
 
+    // L - NY
     G.aresta[1].origem = 0;
     G.aresta[1].destino = 2;
-    G.aresta[1].peso = 4;
+    G.aresta[1].peso = 3469;
 
-    G.aresta[2].origem = 1;
-    G.aresta[2].destino = 2;
-    G.aresta[2].peso = 2;
+    // L - Pa
+    G.aresta[2].origem = 0;
+    G.aresta[2].destino = 3;
+    G.aresta[2].peso = 214;
 
-    G.aresta[3].origem = 2;
-    G.aresta[3].destino = 3;
-    G.aresta[3].peso = 3;
+    // L - Pe
+    G.aresta[3].origem = 0;
+    G.aresta[3].destino = 4;
+    G.aresta[3].peso = 5074;
 
-    G.aresta[4].origem = 2;
+    // L -  T
+    G.aresta[4].origem = 0;
     G.aresta[4].destino = 5;
-    G.aresta[4].peso = 2;
+    G.aresta[4].peso = 5959;
 
-    G.aresta[5].origem = 2;
-    G.aresta[5].destino = 4;
-    G.aresta[5].peso = 4;
+    // CM - NY
+    G.aresta[5].origem = 1;
+    G.aresta[5].destino = 2;
+    G.aresta[5].peso = 2090;
 
-    G.aresta[6].origem = 3;
-    G.aresta[6].destino = 4;
-    G.aresta[6].peso = 3;
+    // CM - Pa
+    G.aresta[6].origem = 1;
+    G.aresta[6].destino = 3;
+    G.aresta[6].peso = 5725;
 
-    G.aresta[7].origem = 5;
+    // CM - Pe
+    G.aresta[7].origem = 1;
     G.aresta[7].destino = 4;
-    G.aresta[7].peso = 3;
+    G.aresta[7].peso = 7753;
+    
+    // CM - T
+    G.aresta[8].origem = 1;
+    G.aresta[8].destino = 5;
+    G.aresta[8].peso = 7035;
+    
+    // NY - Pa
+    G.aresta[9].origem = 2;
+    G.aresta[9].destino = 3;
+    G.aresta[9].peso = 3636;
+    
+    // NY - Pe
+    G.aresta[10].origem = 2;
+    G.aresta[10].destino = 4;
+    G.aresta[10].peso = 6844;
+    
+    // NY - T
+    G.aresta[11].origem = 2;
+    G.aresta[11].destino = 5;
+    G.aresta[11].peso = 6757;
+    
+    // Pa - Pe
+    G.aresta[12].origem = 3;
+    G.aresta[12].destino = 4;
+    G.aresta[12].peso = 5120;
+    
+    // Pa - T
+    G.aresta[13].origem = 3;
+    G.aresta[13].destino = 5;
+    G.aresta[13].peso = 6053;
+    
+    // Pe - T
+    G.aresta[14].origem = 4;
+    G.aresta[14].destino = 5;
+    G.aresta[14].peso = 1307;
+    
     G.AplicarKruskal();
   }
 }
-
-/* https://www.javatpoint.com/kruskal-algorithm-java
- //main() method starts  
-    public static void main(String[] args) {  
-          
-        int v, e;  
-        //create scanner class object to get input from user  
-        Scanner sc = new Scanner(System.in);  
-          
-        //show custom message  
-        System.out.println("Enter number of vertices: ");  
-          
-        //store user entered value into variable v  
-        v = sc.nextInt();  
-          
-        //show custom message  
-        System.out.println("Enter number of edges");  
-          
-        //store user entered value into variable e  
-        e = sc.nextInt();  
-          
-        KruskalAlgorithm graph = new KruskalAlgorithm(v, e);        // use for creating Graph  
-          
-        for(int i = 0; i < e; i++){  
-            System.out.println("Enter source value for edge["+ i +"]");  
-            graph.edgeArray[i].source = sc.nextInt();  
-              
-            System.out.println("Enter destination value for edge["+ i +"]");  
-            graph.edgeArray[i].destination = sc.nextInt();  
-              
-            System.out.println("Enter weight for edge["+i+"]");  
-            graph.edgeArray[i].weight = sc.nextInt();  
-        }  
-          
-        // call applyKruskal() method to get MST  
-        graph.applyKruskal();  
-    }  
-}  
- */
