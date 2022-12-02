@@ -60,6 +60,27 @@ Pede-se: considerando o paradigma de projeto de algoritmo  divisão e conquista,
 ---
 ### RESOLUÇÃO
 
+#### **Selection Sort**
+A complexidade de tempo do Selection Sort é n^2 como demontrado a seguir:
+
+Para o laço externo eu executo n-1 vezes enquanto o interno será um somátorio que começa em n e termina em 1 com razão -1 resultando em ((n^2 + 1)*(-1)). A complexidade de tempo então será de **n^2**.
+
+A complexidade de tempo do Merge Sort é n*log(n) como demonstrado a seguir:
+
+#### **Merge Sort**
+
+As chamadas recursivas do Merge Sort geram uma árvore binária já que sempre dividimos o vetor ao meio para podermos ordena-lo e depois junta-lo.
+
+![Árvore Merge Sort](/p4/img/arvore_merge.JPG "Árvore Merge Sort")
+
+Considerando que para um vetor unitário a complexidade é 1 já que não há o que ordenar, temos a seguinte equação de recursão:
+
+![Recursão Merge Sort](/p4/img/complexidade_merge_recursao.png "Recursão Merge Sort")
+
+Resolvendo a equação para encontrarmos a complexidade de tempo para o Merge Sort temos:
+
+![Complexidade Merge Sort](/p4/img/merge_sort.png "Complexidade Merge Sort")
+
 ---
 
 ### **Questão 2**
@@ -88,6 +109,22 @@ Pede-se: considerando o paradigma de projeto de algoritmo programação dinâmic
 
 ---
 ### RESOLUÇÃO
+
+#### **Fibonacci Recursivo**
+
+O program é extremamente ineficiente pois faz várias chamadas recursivas mesmo já tendo calculado algum valor.
+
+A relação de recorrencia o Fibonacci recursivo será:
+
+    f(0) = 1
+    f(1) = 1
+    f(n) = f(n-1) + f(n-2), para n > 1
+
+As chamadas recursivas farão repetidas chamadas a função de fibonacci que poderiam ser evitadas. Cada chamada da função irá chamar outras duas. Dessa forma, na primeira chamada haverão 2 escopos sendo invocados, acumulativamente na segunda haverão 4 e depois 8, o padrão é de uma potenciação de base 2 com expoente n, ou seja, aproximadamente **2^n** operações. 
+
+#### **Fibonacci com Vetor**
+
+A complexidade de tempo para ese caso é em relação apenas ao tamanho do número que será calculado já q ele definirá a quantidade de repetições, portanto a complexidade será de **n**.
 
 ---
 
@@ -126,4 +163,4 @@ Pede-se: considerando o paradigma de projeto de algoritmo guloso,encontrar uma �
 ---
 ### RESOLUÇÃO
 
----
+O(A*logV) sendo A o número de arestas e V o número de vertices.

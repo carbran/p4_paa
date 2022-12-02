@@ -1,54 +1,55 @@
 package ex1;
 
 import java.util.Scanner;
-import java.util.Arrays;
 
-public class merge_sort {
-// % Entrada: vetor com n coordenadas, A.
-// % Sa´ıda: uma vers˜ao ordenada desse vetor (n˜ao decrescente).
-// Se n > 1
-// ent˜ao retorna
-// merge(mergesort(A[1, . . . , ⌊n/2⌋]),mergesort(A[1, . . . , ⌈n/2⌉])).
-// sen˜ao retorna A
-// Fim de se-ent˜ao-sen˜ao.
-    public static int[] mergeSort(int[] vetor) {
-        int tamanho = vetor.length;
-        if(tamanho > 1){
-            int[] vetor1 = Arrays.copyOfRange(vetor, 0, Math.round(tamanho/2));
-            int[] vetor2 = Arrays.copyOfRange(vetor, 0, Math.round(tamanho/2));
-            return merge(mergeSort(vetor1),mergeSort(vetor2));
-        }else{
-            return vetor;
+public class merge_sort{
+
+    public static void mergeSort(int[] vet_desordenado, int inicio, int fim) {
+        int tamanho = vet_desordenado.length;
+
+        if(vet_desordenado != null && tamanho > 0 && inicio < fim && inicio >= 0 && fim < tamanho ){
+            int meio = Math.round((fim + inicio)/2);
+
+            mergeSort(vet_desordenado, inicio, meio);
+            mergeSort(vet_desordenado, meio+1, fim);
+            
+            merge(vet_desordenado, inicio, meio, fim);
         }
     }
-// aqui o denota concatena¸c˜ao
-//função merge(x[1, . . . , k], y[1, . . . , l]).
-// Se k = 0, ent˜ao retorna y[1, . . . , l]. Fim de se-ent˜ao.
-// Se l = 0, ent˜ao retorna x[1, . . . , k]. Fim de se-ent˜ao.
-// Se x[1] ≤ y[1]
-// ent˜ao retorna x[1] o merge(x[2, . . . , k], y[1, . . . , l]).
-// sen˜ao retorna y[1] o merge(x[1, . . . , k], y[2, . . . , l]).
-// Fim de se-ent˜ao-sen˜ao.
-    private static int[] merge(int[] vet1, int[] vet2) {
-        int tamanho1 = vet1.length;
-        int tamanho2 = vet2.length;
 
-        if (vet1[tamanho1-1] == 0) {
-            return vet2;
-        }
-        if (vet2[tamanho2-1] == 0) {
-            return vet1;
+    private static void merge(int[] vet, int inicio, int meio, int fim) {
+        int[] aux =  new int[vet.length];
+        
+        for (int i = inicio; i <= fim; i++) {
+            aux[i] = vet[i];
         }
 
-        if (vet1[1] < vet2[1]) {
-            int[] vet1_1 = Arrays.copyOfRange(vet1, 1, Math.round(tamanho1/2));
-            //return vet1[1] + merge(vet1_1,vet2);
-            return null; 
-        } else {
-            int[] vet2_1 = Arrays.copyOfRange(vet2, 1, Math.round(tamanho2/2));
-            //return vet2[1] + merge(vet1,vet2_1);
-            return null;
-        }
+		int i = inicio;
+		int j = meio + 1;
+		int k = inicio;
+
+		while (i <= meio && j <= fim) {
+			if (aux[i] == aux[j]) {
+				vet[k] = aux[i];
+				i++;
+			} else {
+				vet[k] = aux[j];
+				j++;
+			}
+			k++;
+		}
+
+		while (i <= meio) {
+			vet[k] = aux[i];
+			i++;
+			k++;
+		}
+
+		while (j <= fim) {
+			vet[k] = aux[j];
+			j++;
+			k++;
+		}
     }
 
     public static void imprime_vetor(int[] vetor_imp) {
@@ -81,7 +82,7 @@ public class merge_sort {
         imprime_vetor(vet_desordenado);
 
         System.out.println("\n\nOrdenando vetor:");
-        mergeSort(vet_desordenado);
+        mergeSort(vet_desordenado,0,tamanho_vetor);
         imprime_vetor(vet_desordenado);
 
         ler.close();
