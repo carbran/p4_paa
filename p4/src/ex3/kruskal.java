@@ -1,9 +1,5 @@
 package ex3;
 
-// https://www.programiz.com/dsa/kruskal-algorithm
-// https://www.geeksforgeeks.org/kruskals-minimum-spanning-tree-algorithm-greedy-algo-2/
-// https://www.javatpoint.com/kruskal-algorithm-java
-
 import java.util.*;
 
 // criar a árvore geradora mínima do grafo fornecido
