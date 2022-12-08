@@ -31,6 +31,7 @@ public class selection_sort {
     }
 
     public static void main(String[] args) {
+        long tempoInicial = System.currentTimeMillis();
         int tamanho_vetor;
         Scanner ler = new Scanner(System.in);
 
@@ -50,6 +51,9 @@ public class selection_sort {
         System.out.println("\n\nOrdenando vetor:");
         selectionSort(vet_desordenado);
         imprime_vetor(vet_desordenado);
+        
+        System.out.println("\n\nO tempo gasto para execução desse programa foi de:");
+        System.out.print((System.currentTimeMillis() - tempoInicial)/1000.00 + " segundos");
 
         ler.close();
     }

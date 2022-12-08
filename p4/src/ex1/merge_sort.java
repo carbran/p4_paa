@@ -65,6 +65,7 @@ public class merge_sort{
     }
 
     public static void main(String[] args) {
+        long tempoInicial = System.currentTimeMillis();
         int tamanho_vetor;
         Scanner ler = new Scanner(System.in);
 
@@ -84,6 +85,9 @@ public class merge_sort{
         System.out.println("\n\nOrdenando vetor:");
         mergeSort(vet_desordenado,0,tamanho_vetor);
         imprime_vetor(vet_desordenado);
+
+        System.out.println("\n\nO tempo gasto para execução desse programa foi de:");
+        System.out.print((System.currentTimeMillis() - tempoInicial)/1000.00 + " segundos");
 
         ler.close();
     }

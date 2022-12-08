@@ -15,6 +15,7 @@ public class Fibonacci2 {
     }
 
     public static void main(String[] args) {
+        long tempoInicial = System.currentTimeMillis();
         int posicao_fib;
         Scanner ler = new Scanner (System.in);
 
@@ -26,6 +27,10 @@ public class Fibonacci2 {
 
         fibonacci(vetor_fib);
         System.out.println("O número é " + vetor_fib[posicao_fib-1]);
+    
+        System.out.println("\n\nO tempo gasto para execução desse programa foi de:");
+        System.out.print((System.currentTimeMillis() - tempoInicial)/1000.00 + " segundos");
+
         ler.close();
     }
 }

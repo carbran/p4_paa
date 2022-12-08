@@ -99,6 +99,7 @@ class grafo {
   }
 
   public static void main(String[] args) {
+    long tempoInicial = System.currentTimeMillis();
     int vertices = 6; // número de vértices (Cidades)
     int arestas = 15; // número de arestas (distâncias)
     grafo G = new grafo(vertices, arestas);
@@ -179,5 +180,9 @@ class grafo {
     G.aresta[14].peso = 1307;
     
     G.AplicarKruskal();
+
+    System.out.println("\n\nO tempo gasto para execução desse programa foi de:");
+    System.out.print((System.currentTimeMillis() - tempoInicial)/1000.00 + " segundos");
+
   }
 }
