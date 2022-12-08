@@ -171,12 +171,14 @@ Algoritmo: Kruskal.
 Pede-se: considerando o paradigma de projeto de algoritmo guloso,encontrar uma árvore geradora mínima para o problema acima usando o algoritmo de Kruskal e analisar a sua complexidade computacional.
 
 ---
-### RESOLUÇÃO
+### *RESOLUÇÃO*
 
 Sendo A o número de arestas e V o número de vértices, para calcular a complexidade do algoritmo de Kruskal é preciso analisar as estruturas de dados usadas. Aqui usamos vetores
 
 A ordenação do vetor de arestas é um merge sort, por isso a complexidade dele é de **A*log(A)**
 
 Criar o subconjunto de vértices custa O(1), considerando que deve ser realizado para cada vértice então será O(V).
+
+Para encontrar e unir os subconjuntos 
 
 O(A*logV) .
