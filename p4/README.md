@@ -58,16 +58,24 @@ No algoritmo mergesort a função merge e como segue:
 Pede-se: considerando o paradigma de projeto de algoritmo  divisão e conquista, analisar a complexidade computacional de    ambos os algoritmos e implementar os dois algoritmos para uma  entrada de tamanho n = 10 e, em seguida, para n = 100. Observe o desempenho em relação ao tempo de execução.
 
 ---
-### RESOLUÇÃO
+### *RESOLUÇÃO*
 
 #### **Selection Sort**
 A complexidade de tempo do Selection Sort é n^2 como demontrado a seguir:
 
-Para o laço externo eu executo n-1 vezes enquanto o interno será um somátorio que começa em n e termina em 1 com razão -1 resultando em ((n^2 + 1)*(-1)). A complexidade de tempo então será de **n^2**.
+![Execução Selection Sort](/p4/img/selection.gif "Execução Selection Sort")
 
-A complexidade de tempo do Merge Sort é n*log(n) como demonstrado a seguir:
+Para o laço externo onde é realizada a cosulta eu executo n-1 vezes na primeira iteração, n−2  passos na segunda, n−3 passos na terceira e assim por diante
+
+Assim o custo será um somátorio de 1 a n-1 com razão 1. A soma dos termos da PA resulta em:
+        
+        (1+(n−1))∗n/2=(n^2)/2 
+        
+Portanto a complexidade de tempo será de **n^2**.
 
 #### **Merge Sort**
+
+A complexidade de tempo do Merge Sort é n*log(n) como demonstrado a seguir:
 
 As chamadas recursivas do Merge Sort geram uma árvore binária já que sempre dividimos o vetor ao meio para podermos ordena-lo e depois junta-lo.
 
@@ -80,6 +88,8 @@ Considerando que para um vetor unitário a complexidade é 1 já que não há o 
 Resolvendo a equação para encontrarmos a complexidade de tempo para o Merge Sort temos:
 
 ![Complexidade Merge Sort](/p4/img/merge_sort.png "Complexidade Merge Sort")
+
+Assim a complexidade do Merge Sort é  **n*log(n)**.
 
 ---
 
@@ -108,7 +118,7 @@ A ideia então e calcular cada um destes, exatamente uma vez, armazenando o resu
 Pede-se: considerando o paradigma de projeto de algoritmo programação dinâmica, analisar a complexidade computacional de ambos os algoritmos e implementar os dois algoritmos para uma entrada de tamanho n = 10 e, em seguida, para n = 100. Observe o desempenho em relação ao tempo de execução.
 
 ---
-### RESOLUÇÃO
+### *RESOLUÇÃO*
 
 #### **Fibonacci Recursivo**
 
@@ -163,4 +173,10 @@ Pede-se: considerando o paradigma de projeto de algoritmo guloso,encontrar uma �
 ---
 ### RESOLUÇÃO
 
-O(A*logV) sendo A o número de arestas e V o número de vertices.
+Sendo A o número de arestas e V o número de vértices, para calcular a complexidade do algoritmo de Kruskal é preciso analisar as estruturas de dados usadas. Aqui usamos vetores
+
+A ordenação do vetor de arestas é um merge sort, por isso a complexidade dele é de **A*log(A)**
+
+Criar o subconjunto de vértices custa O(1), considerando que deve ser realizado para cada vértice então será O(V).
+
+O(A*logV) .

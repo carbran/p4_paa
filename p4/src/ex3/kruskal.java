@@ -63,7 +63,7 @@ class grafo {
     for (i = 0; i < vertices; ++i)
       resultado[i] = new Aresta();
 
-    // ordenando as arestas
+    // ordenando as arestas, o sort realizado é um merge sort
     Arrays.sort(aresta);
 
     // criar um vetor dos vértices do tipo Subconjunto para os subconjuntos de vértices
