@@ -179,6 +179,6 @@ A ordenação do vetor de arestas é um merge sort, por isso a complexidade dele
 
 Criar o subconjunto de vértices custa O(1), considerando que deve ser realizado para cada vértice então será O(V).
 
-Para encontrar e unir os subconjuntos 
+Para encontrar e unir os subconjuntos a complexidade é de O(V + A*O(logV))
 
 O(A*logV) .
