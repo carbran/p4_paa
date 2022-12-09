@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class Fibonacci1 {
 
-    public static int fibonacci(int posFib) {
+    public static double fibonacci(double posFib) {
         if (posFib < 2) {
             return posFib; 
         }else{
@@ -14,12 +14,14 @@ public class Fibonacci1 {
     public static void main(String[] args) {
         long tempoInicial = System.currentTimeMillis();
         int posicao_fib;
-        int resposta;
-        Scanner ler = new Scanner (System.in);
+        double resposta;
+        //Scanner ler = new Scanner (System.in);
 
         System.out.println("FIBONACCI");
         System.out.println("Insira qual posição do número de Fibonacci deseja encontrar:");
-        posicao_fib = ler.nextInt();
+        //posicao_fib = ler.nextInt();
+        posicao_fib = 50;
+        System.out.println(posicao_fib);;
 
         resposta = fibonacci(posicao_fib);
         System.out.println("O número é " + resposta);        
@@ -27,7 +29,7 @@ public class Fibonacci1 {
         System.out.println("\n\nO tempo gasto para execução desse programa foi de:");
         System.out.print((System.currentTimeMillis() - tempoInicial)/1000.00 + " segundos");
 
-        ler.close();
+        //ler.close();
     }
 }
 // Algoritmo: Fibonacci.
